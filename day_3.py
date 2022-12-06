@@ -41,4 +41,23 @@ def part_1():
         s += find_bad_item(left, right)
     print(s)
 
-part_1()
+def parse2():
+    with open('day_3.txt') as fd:
+        while True:
+            line = fd.readline().strip()
+            if line == '':
+                break
+            yield [line, fd.readline().strip(), fd.readline().strip()]
+
+def find_common(arr):
+    i = set.intersection(*[set(el) for el in arr])
+    common = list(i)[0]
+    return priority(common)
+
+def part_2():
+    s = 0
+    for group in parse2():
+        s += find_common(group)
+    print(s)
+
+part_2()
