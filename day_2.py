@@ -1,3 +1,5 @@
+# https://adventofcode.com/2022/day/2
+
 costs = {
     'X': 1,
     'Y': 2,
