@@ -19,6 +19,9 @@ def contains_full(a, b):
     return (a['l'] <= b['l'] and a['r'] >= b['r']) or \
         (b['l'] <= a['l'] and b['r'] >= a['r'])
 
+def overlap(a, b):
+    return not(a['r'] < b['l'] or b['r'] < a['l'])
+
 def part_1():
     counter = 0
     for a, b in parse():
@@ -27,6 +30,11 @@ def part_1():
     return counter
 
 def part_2():
-    pass
+    counter = 0
+    for a, b in parse():
+        if overlap(a, b):
+            counter += 1
+    return counter
 
 print(part_1())
+print(part_2())
